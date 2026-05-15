@@ -4,6 +4,7 @@ import Blocks from "./components/blocks"
 import { useState } from "react"
 import CreateMod from "./components/createMod"
 import View from "./components/view"
+import EditModal from "./components/editModal"
 
 function App() {
   const [data, setData] = useState([{
@@ -35,11 +36,16 @@ function App() {
   }
 
   const [openCreatModal, setOpenCreatModal] = useState(false)
+  const [openEditModal, setOpenEditModal] = useState(false)
   const [createName, setCreateName] = useState('')
   const [createUrl, setCreateUrl] = useState('')
   const [createTitle, setCreateTitle] = useState('')
   const [selectedItem, setSelectedItem] = useState(null)
   const [openView, setOpenView] = useState(false)
+  const [editName, setEditName] = useState('')
+  const [editUrl, setEditUrl] = useState('')
+  const [editTitle, setEditTitle] = useState('')
+  const [id, setId] = useState()
 
   const handleSave = () => {
     setData([...data, { id: Date.now(), name: createName, url: createUrl, title: createTitle }])
@@ -49,6 +55,12 @@ function App() {
     setOpenCreatModal(false)
   }
 
+  const handleEdit = (id) => {
+    setData(data.map((el) => {
+      return el.id == id ? { ...el, name: editName, url:editUrl, title:editTitle } : el
+    }))
+  }
+
 
   return (
     <div className=" bg-black h-screen relative ">
@@ -56,7 +68,8 @@ function App() {
       <Search sch={sch} setSch={setSch} />
       <Blocks data={data} sch={sch} handleDelete={handleDelete} setOpenView={setOpenView} setSelectedItem={setSelectedItem} />
       <CreateMod openCreatModal={openCreatModal} setOpenCreatModal={setOpenCreatModal} createName={createName} setCreateName={setCreateName} createUrl={createUrl} setCreateUrl={setCreateUrl} createTitle={createTitle} setCreateTitle={setCreateTitle} handleSave={handleSave} />
-      <View selectedItem={selectedItem} openView={openView} setOpenView={setOpenView} />
+      <View selectedItem={selectedItem} openView={openView} setOpenView={setOpenView} setId={setId} setOpenEditModal={setOpenEditModal} />
+      <EditModal editName={editName} setEditName={setEditName} editUrl={setEditUrl} editTitle={setEditTitle} openEditModal={openEditModal} setOpenEditModal={setOpenEditModal} handleEdit={handleEdit} id={id}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 
 
-const View = ({selectedItem,openView,setOpenView}) => {
+const View = ({selectedItem,openView,setOpenView,setId,setOpenEditModal}) => {
   return (
     
     <> 
@@ -13,7 +13,7 @@ const View = ({selectedItem,openView,setOpenView}) => {
                     <p className="text-gray-400 pt-2">{selectedItem.title}</p>
                     <p className="text-gray-500 pt-5">id:{selectedItem.id}</p>
                     </div>
-                    <button className="w-40 h-10 bg-white rounded-2xl text-black font-bold cursor-pointer " onClick={()=>{setOpenView(false)}}>Редактировать</button>
+                    <button className="w-40 h-10 bg-white rounded-2xl text-black font-bold cursor-pointer " onClick={()=>{setOpenView(false),setId(selectedItem.id)}}>Редактировать</button>
                 </div>
             </div>
         </div>
