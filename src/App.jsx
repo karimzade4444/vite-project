@@ -2,6 +2,7 @@ import Top from "./components/top"
 import Search from "./components/search"
 import Blocks from "./components/blocks"
 import { useState } from "react"
+import CreateMod from "./components/createMod"
 
 function App() {
   const [data, setData] = useState([{
@@ -32,11 +33,14 @@ function App() {
     setData(data.filter((el) => el.id !== id))
   }
 
+  const[openCreatModal, setOpenCreatModal] = useState(false)
+
   return (
-    <div className=" bg-black h-screen">
+    <div className=" bg-black h-screen relative ">
       <Top filteredData={filteredData} />
       <Search sch={sch} setSch={setSch} />
       <Blocks data={data} sch={sch} handleDelete={handleDelete} />
+      <CreateMod/>
     </div>
   )
 }
