@@ -68,8 +68,8 @@ function App() {
       <Search sch={sch} setSch={setSch} />
       <Blocks data={data} sch={sch} handleDelete={handleDelete} setOpenView={setOpenView} setSelectedItem={setSelectedItem} />
       <CreateMod openCreatModal={openCreatModal} setOpenCreatModal={setOpenCreatModal} createName={createName} setCreateName={setCreateName} createUrl={createUrl} setCreateUrl={setCreateUrl} createTitle={createTitle} setCreateTitle={setCreateTitle} handleSave={handleSave} />
-      <View selectedItem={selectedItem} openView={openView} setOpenView={setOpenView} setId={setId} setOpenEditModal={setOpenEditModal} />
-      <EditModal editName={editName} setEditName={setEditName} editUrl={setEditUrl} editTitle={setEditTitle} openEditModal={openEditModal} setOpenEditModal={setOpenEditModal} handleEdit={handleEdit} id={id}/>
+      <View selectedItem={selectedItem} openView={openView} setOpenView={setOpenView} setId={setId} setOpenEditModal={setOpenEditModal} setEditName={setEditName} setEditUrl={setEditUrl} setEditTitle={setEditTitle} />
+      <EditModal editName={editName} setEditName={setEditName} editUrl={editUrl} setEditUrl={setEditUrl} editTitle={editTitle} setEditTitle={setEditTitle} openEditModal={openEditModal} setOpenEditModal={setOpenEditModal} handleEdit={handleEdit} id={id}/>
     </div>
   )
 }

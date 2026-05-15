@@ -8,7 +8,7 @@ const EditModal = ({editName,setEditName,editUrl,setEditUrl,editTitle,setEditTit
                 <div><p>Название*</p><input type="text" name="" id="" value={editName} onChange={(e)=>{setEditName(e.target.value)}} placeholder="Например.: JavaScript" className="w-full h-12 border-2 border-white rounded-2xl pl-3" /></div>
                 <div><p>Ссылка на изображение*</p><input type="text" name="" id="" value={editUrl} onChange={(e)=>{setEditUrl(e.target.value)}} placeholder="https://..." className="w-full h-12 border-2 border-white rounded-2xl pl-3" /></div>
                 <div><p>Описание</p><input type="text" name="" id="" value={editTitle} onChange={(e)=>{setEditTitle(e.target.value)}} placeholder="Коротко опишите материал." className="w-full h-12 border-2 border-white rounded-2xl pl-3" /></div>
-                <div className=" flex justify-center items-center gap-5 pt-12 pl-50"><button className="w-25 h-12 cursor-pointer  rounded-xl border-2 border-white font-bold" onClick={()=>{setOpenEditModal(false)}}>Отмена</button><button className="w-25 h-12 cursor-pointer  rounded-xl bg-white text-black font-bold" onClick={handleEdit(id)}>Создать</button></div>
+                <div className=" flex justify-center items-center gap-5 pt-12 pl-50"><button className="w-25 h-12 cursor-pointer  rounded-xl border-2 border-white font-bold" onClick={()=>{setOpenEditModal(false)}}>Отмена</button><button className="w-25 h-12 cursor-pointer  rounded-xl bg-white text-black font-bold" onClick={()=>{handleEdit(id)}}>Создать</button></div>
             </div>
         </div>)}
         </>
