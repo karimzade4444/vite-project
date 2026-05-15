@@ -1,8 +1,16 @@
 
 
-const Blocks = () => {
+const Blocks = ({data}) => {
   return (
-    <div>blocks</div>
+    <div>
+        {data.map((el)=>{
+            return (
+                <div key={el.id} className="w-50 h-40 bg-black"></div>
+            )
+        })}
+
+
+    </div>
   )
 }
 
