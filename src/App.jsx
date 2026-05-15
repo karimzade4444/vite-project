@@ -3,6 +3,7 @@ import Search from "./components/search"
 import Blocks from "./components/blocks"
 import { useState } from "react"
 import CreateMod from "./components/createMod"
+import View from "./components/view"
 
 function App() {
   const [data, setData] = useState([{
@@ -36,7 +37,9 @@ function App() {
   const [openCreatModal, setOpenCreatModal] = useState(false)
   const [createName, setCreateName] = useState('')
   const [createUrl, setCreateUrl] = useState('')
-  const [createTitle, setCreateTitle]=useState('')
+  const [createTitle, setCreateTitle] = useState('')
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [openView, setOpenView] = useState(false)
 
   const handleSave = () => {
     setData([...data, { id: Date.now(), name: createName, url: createUrl, title: createTitle }])
@@ -51,8 +54,9 @@ function App() {
     <div className=" bg-black h-screen relative ">
       <Top filteredData={filteredData} setOpenCreatModal={setOpenCreatModal} />
       <Search sch={sch} setSch={setSch} />
-      <Blocks data={data} sch={sch} handleDelete={handleDelete} />
-      <CreateMod openCreatModal={openCreatModal} setOpenCreatModal={setOpenCreatModal}  createName={createName} setCreateName={setCreateName} createUrl={createUrl} setCreateUrl={setCreateUrl} createTitle={createTitle} setCreateTitle={setCreateTitle} handleSave={handleSave}/>
+      <Blocks data={data} sch={sch} handleDelete={handleDelete} setOpenView={setOpenView} setSelectedItem={setSelectedItem} />
+      <CreateMod openCreatModal={openCreatModal} setOpenCreatModal={setOpenCreatModal} createName={createName} setCreateName={setCreateName} createUrl={createUrl} setCreateUrl={setCreateUrl} createTitle={createTitle} setCreateTitle={setCreateTitle} handleSave={handleSave} />
+      <View selectedItem={selectedItem} openView={openView} setOpenView={setOpenView} />
     </div>
   )
 }
