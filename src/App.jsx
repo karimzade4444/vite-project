@@ -59,6 +59,7 @@ function App() {
     setData(data.map((el) => {
       return el.id == id ? { ...el, name: editName, url:editUrl, title:editTitle } : el
     }))
+    setOpenEditModal(false)
   }
 
 
