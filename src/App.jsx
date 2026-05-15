@@ -23,10 +23,12 @@ function App (){
     title: "Короткая шпаргалка по useState и пропсам."
   }
 ])
+
+
   return (
     <div className=" bg-black h-screen">
     <Top data={data}/>
-    <Search/>
+    <Search />
     <Blocks data={data}/>
     </div>
   )
