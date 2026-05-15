@@ -40,7 +40,7 @@ function App() {
       <Top filteredData={filteredData}  setOpenCreatModal={setOpenCreatModal}/>
       <Search sch={sch} setSch={setSch} />
       <Blocks data={data} sch={sch} handleDelete={handleDelete} />
-      <CreateMod/>
+      <CreateMod openCreatModal={openCreatModal} openCreatModal={setOpenCreatModal}/>
     </div>
   )
 }

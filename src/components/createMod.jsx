@@ -1,6 +1,6 @@
 
 
-const CreateMod = () => {
+const CreateMod = (openCreatModal,openCreatModal) => {
     return (
         <div className=" absolute inset-0 bg-black/50 z-10 flex justify-center items-center backdrop-blur-sm text-white">
             <div className="w-120 h-120 bg-black border border-gray-400 rounded-2xl leading-12 p-5"><div className=" flex justify-between items-center "><p className="text-white font-bold text-2xl ">Новый материал</p> <p className="text-gray-400 cursor-pointer">Закрыть</p></div>
