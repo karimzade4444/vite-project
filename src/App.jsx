@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className=" bg-black h-screen relative ">
-      <Top filteredData={filteredData} />
+      <Top filteredData={filteredData}  setOpenCreatModal={setOpenCreatModal}/>
       <Search sch={sch} setSch={setSch} />
       <Blocks data={data} sch={sch} handleDelete={handleDelete} />
       <CreateMod/>
