@@ -24,12 +24,17 @@ function App (){
   }
 ])
 
+const [sch, setSch]=useState('')
+
+const filteredData = data.filter((el) =>
+  el.name.toLowerCase().includes(sch.toLowerCase())
+)
 
   return (
     <div className=" bg-black h-screen">
-    <Top data={data}/>
-    <Search />
-    <Blocks data={data}/>
+    <Top filteredData={filteredData}/>
+    <Search sch={sch} setSch={setSch}/>
+    <Blocks data={data} sch={sch}/>
     </div>
   )
 }
