@@ -1,6 +1,6 @@
 
 
-const CreateMod = ({openCreatModal, setOpenCreatModal}) => {
+const CreateMod = ({openCreatModal, setOpenCreatModal, createName,setCreateName,createUrl,setCreateUrl,createTitle,setCreateTitle,handleSave}) => {
     return (
         <>
         {openCreatModal && (<div className=" absolute inset-0 bg-black/50 z-10 flex justify-center items-center backdrop-blur-sm text-white">

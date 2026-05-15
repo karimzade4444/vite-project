@@ -33,14 +33,26 @@ function App() {
     setData(data.filter((el) => el.id !== id))
   }
 
-  const[openCreatModal, setOpenCreatModal] = useState(false)
+  const [openCreatModal, setOpenCreatModal] = useState(false)
+  const [createName, setCreateName] = useState('')
+  const [createUrl, setCreateUrl] = useState('')
+  const [createTitle, setCreateTitle]=useState('')
+
+  const handleSave = () => {
+    setData([...data, { id: Date.now(), name: createName, url: createUrl, title: createTitle }])
+    setCreateName('')
+    setCreateUrl('')
+    setCreateTitle('')
+    setOpenCreatModal(false)
+  }
+
 
   return (
     <div className=" bg-black h-screen relative ">
-      <Top filteredData={filteredData}  setOpenCreatModal={setOpenCreatModal}/>
+      <Top filteredData={filteredData} setOpenCreatModal={setOpenCreatModal} />
       <Search sch={sch} setSch={setSch} />
       <Blocks data={data} sch={sch} handleDelete={handleDelete} />
-      <CreateMod openCreatModal={openCreatModal} setOpenCreatModal={setOpenCreatModal}/>
+      <CreateMod openCreatModal={openCreatModal} setOpenCreatModal={setOpenCreatModal}  createName={createName} setCreateName={setCreateName} createUrl={createUrl} setCreateUrl={setCreateUrl} createTitle={createTitle} setCreateTitle={setCreateTitle} handleSave={handleSave}/>
     </div>
   )
 }
